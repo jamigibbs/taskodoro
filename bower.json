@@ -1,0 +1,28 @@
+{
+  "name": "taskodoro",
+  "version": "1.0.0",
+  "authors": [
+    "Jami Gibbs"
+  ],
+  "description": "A time management app based on the Pomodoro technique using AngularJS and Firebase.",
+  "main": "gulpfile.js",
+  "keywords": [
+    "framework",
+    "angular",
+    "web",
+    "apps"
+  ],
+  "license": "MIT",
+  "homepage": "https://twitter.com/jamigibbs",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "foundation-apps": "~1.1.0"
+  }
+}
