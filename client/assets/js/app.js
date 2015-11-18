@@ -1,14 +1,17 @@
 (function() {
   'use strict';
 
-  angular.module('application', [
+  angular.module('taskodoroApp', [
     'ui.router',
     'ngAnimate',
 
     //foundation
     'foundation',
     'foundation.dynamicRouting',
-    'foundation.dynamicRouting.animations'
+    'foundation.dynamicRouting.animations',
+
+    // Firebase
+    'firebase'
   ])
     .config(config)
     .run(run)

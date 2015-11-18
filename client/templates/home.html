@@ -6,4 +6,25 @@ url: /
 <div class="grid-container">
   <h1>Welcome to Taskodoro!</h1>
   <p class="lead">A time management app based on the <a href="https://en.wikipedia.org/wiki/Pomodoro_Technique">Pomodoro technique</a> using AngularJS and Firebase.</p>
+
+  <div ng-controller="firebaseCtrl">
+
+    <ul>
+      <li ng-repeat="message in messages">
+        <!-- edit a message -->
+        <input ng-model="message.text" ng-change="messages.$save(message)" />
+
+        <!-- delete a message -->
+        <button ng-click="messages.$remove(message)">Delete Message</button>
+      </li>
+    </ul>
+
+    <!-- push a new message onto the array -->
+    <form ng-submit="addMessage()">
+      <input ng-model="newMessageText" />
+      <button type="submit">Add Message</button>
+    </form>
+
+  </div>
+
 </div>

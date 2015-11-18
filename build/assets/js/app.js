@@ -1,14 +1,17 @@
 (function() {
   'use strict';
 
-  angular.module('application', [
+  angular.module('taskodoroApp', [
     'ui.router',
     'ngAnimate',
 
     //foundation
     'foundation',
     'foundation.dynamicRouting',
-    'foundation.dynamicRouting.animations'
+    'foundation.dynamicRouting.animations',
+
+    // Firebase
+    'firebase'
   ])
     .config(config)
     .run(run)
@@ -32,3 +35,21 @@
   }
 
 })();
+
+angular.module('taskodoroApp')
+
+  .controller("firebaseCtrl", function($scope, $firebaseArray) {
+    var ref = new Firebase("https://glaring-inferno-4633.firebaseio.com");
+
+    // create a synchronized array
+    $scope.messages = $firebaseArray(ref);
+
+    // add new items to the array
+    // the message is automatically added to our Firebase database
+    $scope.addMessage = function() {
+      $scope.messages.$add({
+        text: $scope.newMessageText
+      });
+    };
+
+  });
