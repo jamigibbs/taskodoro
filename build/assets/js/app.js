@@ -84,16 +84,6 @@ angular.module('taskodoroApp')
 
 angular.module('taskodoroApp')
 
-  // Converts seconds into hour:min:sec format
-  .filter('secondsTime', [function() {
-      return function(seconds) {
-        return new Date(1970, 0, 1).setSeconds(seconds);
-      };
-  }]);
-
-
-angular.module('taskodoroApp')
-
   .controller('mainCtrl', function($scope, $firebaseArray) {
     var ref = new Firebase("https://glaring-inferno-4633.firebaseio.com");
 
@@ -111,3 +101,13 @@ angular.module('taskodoroApp')
     $scope.workTime = 1500; // 25 min
 
   });
+
+angular.module('taskodoroApp')
+
+  // Converts seconds into hour:min:sec format
+  .filter('secondsTime', [function() {
+      return function(seconds) {
+        return new Date(1970, 0, 1).setSeconds(seconds);
+      };
+  }]);
+
