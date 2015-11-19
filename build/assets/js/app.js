@@ -42,56 +42,42 @@
 
 angular.module('taskodoroApp')
 
-  .controller('firebaseCtrl', function($scope, $firebaseArray) {
-    var ref = new Firebase("https://glaring-inferno-4633.firebaseio.com");
+  .directive('timer', ['$interval', function($interval) {
 
-    // create a synchronized array
-    $scope.messages = $firebaseArray(ref);
+    return {
+      restrict: 'E',
+      scope: {
+        value: "="
+      },
+      template: '<h1 ng-bind=" time | secondsTime | date:\'m:ss\' "></h1>' +
+      '<a ng-hide="timerActive" class="button success expand timer-button" ng-click="updateTime($event)" ng-bind="btnStart"></a>' +
+      '<a ng-show="timerActive" class="button secondary expand timer-button" ng-bind="btnReset" ng-click="resetClick($event)"></a>',
+      link: function(scope, element, attrs) {
 
-    // add new items to the array
-    // the message is automatically added to our Firebase database
-    // $scope.addMessage = function() {
-    //   $scope.messages.$add({
-    //     text: $scope.newMessageText
-    //   });
-    // };
+        var timerActive;
+        var internalPromise;
+        scope.time = scope.value;
+        scope.btnStart = 'Start';
+        scope.btnReset = 'Reset';
 
-  })
+        scope.updateTime = function(){
+          scope.timerActive = true;
+          internalPromise = $interval(function () {
+            scope.time--;
+            if ( scope.time === 0){
+              $interval.cancel(internalPromise);
+            }
+          }, 1000);
+        };
 
-  .controller('counterCtrl',['$scope', '$timeout', function($scope, $timeout){
+        scope.resetClick = function(event){
+          scope.time = scope.value;
+          scope.timerActive = false;
+          $interval.cancel(internalPromise);
+        };
 
-    // Initial values for counter
-    var timerAction;
-    var baseTime = 1500; // 25 min
-    $scope.counter = baseTime;
-    $scope.timerRunning = false;
-
-    $scope.countdown = function() {
-
-      $scope.timerRunning = true;
-
-      //Cancels a task associated with the promise. As a result of this, the
-      //promise will be resolved with a rejection.
-      timerAction = $timeout(function() {
-        $scope.counter--;
-        $scope.countdown();
-      }, 1000);
-
-      if( $scope.counter === 0 ) {
-        $timeout.cancel(timerAction);
-        $scope.timerRunning = false;
       }
 
-    };
-
-    $scope.stop = function(){
-      $timeout.cancel(timerAction);
-      $scope.timerRunning = false;
-    };
-
-    $scope.reset = function(){
-      $timeout.cancel(timerAction);
-      $scope.counter = baseTime;
     };
 
   }]);
@@ -105,3 +91,23 @@ angular.module('taskodoroApp')
       };
   }]);
 
+
+angular.module('taskodoroApp')
+
+  .controller('mainCtrl', function($scope, $firebaseArray) {
+    var ref = new Firebase("https://glaring-inferno-4633.firebaseio.com");
+
+    // create a synchronized array
+    $scope.messages = $firebaseArray(ref);
+
+    // add new items to the array
+    // the message is automatically added to our Firebase database
+    // $scope.addMessage = function() {
+    //   $scope.messages.$add({
+    //     text: $scope.newMessageText
+    //   });
+    // };
+
+    $scope.workTime = 1500; // 25 min
+
+  });
