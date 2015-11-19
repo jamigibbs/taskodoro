@@ -17,9 +17,9 @@
     .run(run)
   ;
 
-  config.$inject = ['$urlRouterProvider', '$locationProvider'];
+  config.$inject = ['$urlRouterProvider', '$locationProvider', '$animateProvider'];
 
-  function config($urlProvider, $locationProvider) {
+  function config($urlProvider, $locationProvider, $animateProvider) {
     $urlProvider.otherwise('/');
 
     $locationProvider.html5Mode({
@@ -28,6 +28,10 @@
     });
 
     $locationProvider.hashPrefix('!');
+
+    // http://goo.gl/HgA1Em
+    $animateProvider.classNameFilter(/animate-/);
+
   }
 
   function run() {

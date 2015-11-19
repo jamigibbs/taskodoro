@@ -1,26 +1,23 @@
 
-<div class="grid-container">
-  <h1>Welcome to Taskodoro!</h1>
-  <p class="lead">A time management app based on the <a href="https://en.wikipedia.org/wiki/Pomodoro_Technique">Pomodoro technique</a> using AngularJS and Firebase.</p>
+<div class="grid-block">
+  <div class="grid-container">
 
-  <div ng-controller="firebaseCtrl">
+    <div class="timer">
 
-    <ul>
-      <li ng-repeat="message in messages">
-        <!-- edit a message -->
-        <input ng-model="message.text" ng-change="messages.$save(message)" />
+    <!-- <a class="button timer-button" ng-click="countdown()">Start</a>
+    <a class="button timer-button" ng-click="stop()">Stop</a> -->
 
-        <!-- delete a message -->
-        <button ng-click="messages.$remove(message)">Delete Message</button>
-      </li>
-    </ul>
+      <div ng-controller="counterCtrl">
 
-    <!-- push a new message onto the array -->
-    <form ng-submit="addMessage()">
-      <input ng-model="newMessageText" />
-      <button type="submit">Add Message</button>
-    </form>
+        <h1 ng-bind=" counter | secondsTime | date:'m:ss' "></h1>
+
+        <a class="button success expand timer-button" ng-click="countdown()" ng-hide="timerRunning">Start</a>
+        <a class="button alert expand timer-button" ng-click="stop()" ng-show="timerRunning">Stop</a>
+        <a class="button secondary expand timer-button" ng-click="reset()">Reset</a>
+
+      </div>
+
+    </div>
 
   </div>
-
 </div>
