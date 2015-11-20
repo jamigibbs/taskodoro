@@ -1,10 +1,28 @@
 
-<div class="grid-block">
-  <div class="grid-container">
+  <div class="grid-block timer-wrap">
 
-    <div class="timer-wrap">
-      <timer value="workTime"></timer>
-    </div><!-- .timer-wrap -->
+    <div class="grid-container">
+
+        <timer ng-bind="time | secondsTime | date:'m:ss'"></timer>
+
+        <!-- Start Work Timer -->
+        <a ng-show="!timerActive && workTimer" class="button success expand timer-button" ng-click="timerStart($event)" ng-bind="btnStart"></a>
+
+        <!-- Start Break Timer -->
+        <a ng-show="!timerActive && breakTimer" class="button info expand timer-button" ng-click="timerStart($event)" ng-class="{true: 'disabled', false: ''}[timerActive]" ng-bind="btnBreak"></a>
+
+        <!-- Disable Break Button While On Break -->
+        <a ng-show="timerActive && breakTimer" class="button info expand timer-button" ng-class="{true: 'disabled', false: ''}[timerActive]" ng-bind="btnBreak"></a>
+
+        <!-- Reset Timer -->
+        <a ng-show="timerActive && workTimer" class="button secondary expand timer-button" ng-click="resetTime($event)" ng-bind="btnReset"></a>
+
+    </div>
 
   </div>
-</div>
+
+  <div class="grid-block">
+    <div class="grid-container">
+      <h4 ng-show="workSessions > 0">Work Sessions Completed: {{workSessions}}</h4>
+    </div>
+  </div>

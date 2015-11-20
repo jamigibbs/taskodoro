@@ -14,6 +14,4 @@ angular.module('taskodoroApp')
     //   });
     // };
 
-    $scope.workTime = 1500; // 25 min
-
   });

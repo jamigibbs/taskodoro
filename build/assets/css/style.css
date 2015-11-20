@@ -1,9 +1,8 @@
 .timer-wrap {
   text-align: center;
   padding-top: 30px;
-  padding-bottom: 30px; }
-  .timer-wrap h1 {
-    font-size: 5em;
-    font-weight: 300; }
+  padding-bottom: 30px;
+  font-size: 5em;
+  font-weight: 300; }
   .timer-wrap .button.secondary {
     color: #7B7B7B; }
