@@ -9,7 +9,8 @@ angular.module('taskodoroApp')
 
         // Set our base times
         var workTime = 1500; // 25 min = 1500
-        var shortBreakTime = 300; // 5 min = 300
+        var breakTime = 300; // 5 min = 300
+        var longBreakTime = 1800; // 30 min == 1800;
         scope.time = workTime;
 
         // To cancel the time updates
@@ -19,6 +20,7 @@ angular.module('taskodoroApp')
         scope.timerActive = false;
         scope.workTimer = true;
         scope.breakTimer = false;
+        scope.milestone = false;
 
         // For counting our total work sessions
         scope.workSessions = 0;
@@ -43,23 +45,31 @@ angular.module('taskodoroApp')
           $interval.cancel(stopTimer);
         };
 
-        // Checking timer status and swapping variable states
+        // Checking timer status and adjusting variable states
         var timerStatus = function(){
+          // Stop the timer at zero
           if(scope.time === 0){
             $interval.cancel(stopTimer);
           }
+          // Handle the completed work timer
           if(scope.workTimer && (scope.time === 0)){
             scope.workSessions++;
             scope.breakTimer = true;
             scope.workTimer = false;
             scope.timerActive = false;
-            scope.time = shortBreakTime;
-          }
-          if(scope.breakTimer && (scope.time === 0)){
+            // If 4 work sessions have completed
+            if( scope.workSessions === 4){
+              scope.time = longBreakTime; // 30 min
+              scope.workSessions = 0;
+            } else {
+              scope.time = breakTime; // 5 min
+            }
+          // Handle the completed break timer
+          } else if(scope.breakTimer && (scope.time === 0) ){
             scope.breakTimer = false;
             scope.workTimer = true;
             scope.timerActive = false;
-            scope.time = workTime;
+            scope.time = workTime; // 25 min
           }
         };
 
