@@ -60,7 +60,7 @@ angular.module('taskodoroApp')
 
 angular.module('taskodoroApp')
 
-  .directive('timer', ['$rootScope', '$interval', function($rootScope, $interval) {
+  .directive('timer', ['$rootScope', '$interval', 'SoundPlayer', function($rootScope, $interval, SoundPlayer) {
 
     return {
       restrict: 'E',
@@ -113,10 +113,16 @@ angular.module('taskodoroApp')
           }
           // Handle the completed work timer
           if(scope.workTimer && (scope.time === 0)){
+
+            // Play work ding sound
+            SoundPlayer.setSound('work-ding');
+            SoundPlayer.play();
+
             scope.workSessions++;
             scope.breakTimer = true;
             scope.workTimer = false;
             scope.timerActive = false;
+
             // If 4 work sessions have completed
             if( scope.workSessions === 4){
               scope.time = longBreakTime; // 30 min
@@ -126,6 +132,11 @@ angular.module('taskodoroApp')
             }
           // Handle the completed break timer
           } else if(scope.breakTimer && (scope.time === 0) ){
+
+            // Play break ding sound
+            SoundPlayer.setSound('break-ding');
+            SoundPlayer.play();
+
             scope.breakTimer = false;
             scope.workTimer = true;
             scope.timerActive = false;
@@ -153,3 +164,33 @@ angular.module('taskodoroApp')
       };
   }]);
 
+angular.module('taskodoroApp')
+
+  .factory('SoundPlayer', function(){
+
+    var audioPath = '/assets/sounds/';
+    var soundFile = null;
+    var currentSoundFile = null;
+
+    return {
+
+      setSound: function(name) {
+
+        soundFile = name;
+
+        currentSoundFile = new buzz.sound(audioPath + soundFile, {
+          formats: [ 'mp3' ],
+          preload: true,
+          autoplay: true,
+          loop: false
+        });
+
+      },
+
+      play: function(){
+	      currentSoundFile.play();
+	    }
+
+    };
+
+  });
