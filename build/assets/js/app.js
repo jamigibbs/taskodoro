@@ -42,21 +42,11 @@
 
 angular.module('taskodoroApp')
 
-  .controller('mainCtrl', function($scope, $firebaseArray) {
-    var ref = new Firebase("https://glaring-inferno-4633.firebaseio.com");
+  .controller('mainCtrl', ['$scope', 'Tasks', function($scope, Tasks) {
 
-    // create a synchronized array
-    $scope.messages = $firebaseArray(ref);
+    $scope.tasks = Tasks.all;
 
-    // add new items to the array
-    // the message is automatically added to our Firebase database
-    // $scope.addMessage = function() {
-    //   $scope.messages.$add({
-    //     text: $scope.newMessageText
-    //   });
-    // };
-
-  });
+  }]);
 
 angular.module('taskodoroApp')
 
@@ -162,6 +152,21 @@ angular.module('taskodoroApp')
       return function(seconds) {
         return new Date(1970, 0, 1).setSeconds(seconds);
       };
+  }]);
+
+angular.module('taskodoroApp')
+
+  .factory('Tasks', [ '$firebaseArray', function($firebaseArray){
+
+    var ref = new Firebase("https://glaring-inferno-4633.firebaseio.com");
+
+    // download tasks into a synchronized array
+    var tasks = $firebaseArray(ref);
+
+    return {
+      all: tasks
+    };
+
   }]);
 
 angular.module('taskodoroApp')
