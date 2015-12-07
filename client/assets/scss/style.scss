@@ -1,10 +1,75 @@
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+1.0 Defaults
+2.0 Timer
+3.0 Tasks Panel
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+1.0 Defaults
+--------------------------------------------------------------*/
+a > .iconic * {
+  fill: #7B7B7B;
+}
+
+.button.orange {
+  background-color: #ef5350;
+  &:hover {
+    background-color: #ea1a15;
+  }
+}
+
+/*--------------------------------------------------------------
+2.0 Timer
+--------------------------------------------------------------*/
 .timer-wrap {
   text-align: center;
   padding-top: 30px;
   padding-bottom: 30px;
-  font-size: 5em;
+  margin-top: 20%;
+  font-size: 6em;
   font-weight: 300;
+  timer {
+    display: block;
+    margin-bottom: 0.25em;
+  }
   .button.secondary {
     color: #7B7B7B;
+  }
+  a > .iconic * {
+    fill: #7B7B7B;
+  }
+}
+
+/*--------------------------------------------------------------
+3.0 Tasks Panel
+--------------------------------------------------------------*/
+#tasks-panel {
+  .tasks-close  {
+    float: right;
+    margin: 1em;
+  }
+  .tasks-submit {
+    clear: both;
+    width: 100%;
+    padding: 0 1em;
+    input[type="text"] {
+      font-size: 0.9rem;
+      font-style: italic;
+    }
+  }
+  ul {
+    list-style: none;
+    padding: 0 1em;
+    line-height: 2.3;
+  }
+}
+
+#task-list {
+  a.button {
+    padding: 0.1em 0.3em;
+    margin: 0;
+    color: #999999;
   }
 }

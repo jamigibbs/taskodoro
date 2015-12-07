@@ -3,6 +3,43 @@ name: home
 url: /
 ---
 
+  <div zf-panel="" id="tasks-panel">
+
+    <a zf-close="" class="tasks-close"><img zf-iconic="" icon="circle-x" size="small"></a>
+
+    <!-- Remove input text when submitted -->
+    <form ng-submit="tasks.$add(taskInput) && ( taskInput = null )">
+
+      <div class="tasks-submit">
+        <span class="inline-label">
+
+          <!-- Task input -->
+          <input ng-model="taskInput" type="text" placeholder="Enter completed task">
+          <a href="#" ng-click="tasks.$add(taskInput) && ( taskInput = null )" class="button orange">Submit</a>
+
+          <!-- Positioned off screen. Added to be able to remove text on keyboard enter -->
+          <input type="submit" style="position: absolute; left: -9999px; width: 1px; height: 1px;"/>
+
+        </span>
+      </div><!-- .tasks-submit -->
+
+    </form>
+
+    <div class="grid-block" id="task-list">
+      <div class="grid-content">
+
+        <ul>
+          <li ng-repeat="task in tasks">
+            {{ task.$value }}
+            <a href="#" ng-click="tasks.$remove(task)" class="button secondary">x</a>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+
+  </div>
+
   <div class="grid-block timer-wrap">
 
     <div class="grid-container">
@@ -20,6 +57,8 @@ url: /
 
         <!-- Reset Timer -->
         <a ng-show="timerActive && workTimer" class="button secondary expand timer-button" ng-click="resetTime($event)" ng-bind="btnReset"></a>
+
+        <a href="#" zf-toggle="tasks-panel" class="tasks-button button secondary expand">Toggle Tasks</a>
 
     </div>
 
