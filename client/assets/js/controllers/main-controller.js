@@ -4,4 +4,14 @@ angular.module('taskodoroApp')
 
     $scope.tasks = Tasks.all;
 
+    $scope.addTask = function() {
+      Tasks.all.$add({
+        description: this.task,
+        created_at: Date.now()
+      });
+
+      this.task = null;
+
+    };
+
   }]);
