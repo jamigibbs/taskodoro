@@ -2,7 +2,9 @@
 
 A time management app based on the [Pomodoro Technique](https://en.wikipedia.org/wiki/Pomodoro_Technique) using AngularJS and Firebase.
 
-### Credits
+This app has been primarily created as an exercise and development is ongoing.
+
+## Credits
 
 * Foundation for Apps, http://foundation.zurb.com/apps.html, (C) 1998‐2015 ZURB, Inc., [MIT](https://opensource.org/licenses/MIT)
 
