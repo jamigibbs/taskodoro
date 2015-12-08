@@ -46,6 +46,11 @@ a > .iconic * {
 3.0 Tasks Panel
 --------------------------------------------------------------*/
 #tasks-panel {
+  h4 {
+    padding: 0 0.5em;
+    clear: both;
+    margin-bottom: 1em;
+  }
   .tasks-close  {
     float: right;
     margin: 1em;

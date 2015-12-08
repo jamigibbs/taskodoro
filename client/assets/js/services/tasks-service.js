@@ -8,7 +8,9 @@ angular.module('taskodoroApp')
     var tasks = $firebaseArray(ref);
 
     return {
+
       all: tasks
+
     };
 
   }]);

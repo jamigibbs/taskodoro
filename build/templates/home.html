@@ -3,17 +3,19 @@
 
     <a zf-close="" class="tasks-close"><img zf-iconic="" icon="circle-x" size="small"></a>
 
+    <h4>Task History</h4>
+
     <!-- Remove input text when submitted -->
-    <form ng-submit="tasks.$add(taskInput) && ( taskInput = null )">
+    <form ng-submit="addTask() ">
 
       <div class="tasks-submit">
         <span class="inline-label">
 
           <!-- Task input -->
-          <input ng-model="taskInput" type="text" placeholder="Enter completed task">
-          <a href="#" ng-click="tasks.$add(taskInput) && ( taskInput = null )" class="button orange">Submit</a>
+          <input ng-model="task" type="text" placeholder="Enter completed task">
+          <a href="#" ng-click="addTask()" class="button orange">Submit</a>
 
-          <!-- Positioned off screen. Added to be able to remove text on keyboard enter -->
+          <!-- Positioned off screen. Added to remove text on keyboard enter -->
           <input type="submit" style="position: absolute; left: -9999px; width: 1px; height: 1px;"/>
 
         </span>
@@ -25,8 +27,8 @@
       <div class="grid-content">
 
         <ul>
-          <li ng-repeat="task in tasks">
-            {{ task.$value }}
+          <li ng-repeat="task in tasks | orderBy: '-created_at' ">
+            {{ task.description }}
             <a href="#" ng-click="tasks.$remove(task)" class="button secondary">x</a>
           </li>
         </ul>
