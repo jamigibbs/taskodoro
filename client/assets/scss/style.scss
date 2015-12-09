@@ -20,6 +20,15 @@ a > .iconic * {
   }
 }
 
+.error {
+  font-size: 0.8em;
+  padding: 0 1em;
+  margin: 0 1.2em 1em 1.2em;
+  background-color: #ef5350;
+  color: white;
+  line-height: 2.3;
+}
+
 /*--------------------------------------------------------------
 2.0 Timer
 --------------------------------------------------------------*/
@@ -27,7 +36,7 @@ a > .iconic * {
   text-align: center;
   padding-top: 30px;
   padding-bottom: 30px;
-  margin-top: 20%;
+  margin-top: 10%;
   font-size: 6em;
   font-weight: 300;
   timer {
