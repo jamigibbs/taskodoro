@@ -10,14 +10,21 @@ url: /
     <h4>Task History</h4>
 
     <!-- Remove input text when submitted -->
-    <form ng-submit="addTask() ">
+    <form name="taskForm" ng-submit="addTask()">
 
       <div class="tasks-submit">
         <span class="inline-label">
 
           <!-- Task input -->
-          <input ng-model="task" type="text" placeholder="Enter completed task">
-          <a href="#" ng-click="addTask()" class="button orange">Submit</a>
+          <input
+            type="text"
+            placeholder="Enter completed task"
+            name="description"
+            ng-model="task"
+            ng-maxlength="100"
+            required >
+
+          <a href="#" ng-click="addTask()" class="button success">Submit</a>
 
           <!-- Positioned off screen. Added to remove text on keyboard enter -->
           <input type="submit" style="position: absolute; left: -9999px; width: 1px; height: 1px;"/>
@@ -26,6 +33,9 @@ url: /
       </div><!-- .tasks-submit -->
 
     </form>
+
+    <!-- show an error if task is too long -->
+    <p class="error orange fade" ng-show="taskForm.description.$error.maxlength">Woah nelly! There's 100 character limit.</p>
 
     <div class="grid-block" id="task-list">
       <div class="grid-content">

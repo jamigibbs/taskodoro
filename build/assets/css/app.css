@@ -2004,9 +2004,9 @@ meter {
   /*
     Shadows
   */ }
-  @media only screen and (min-width: 18.75em) {
+  @media only screen and (min-width: 21.875em) {
     .panel-right {
-      width: 300px; } }
+      width: 350px; } }
   .panel-right.is-active {
     box-shadow: -3px 0 10px rgba(0, 0, 0, 0.25); }
 
@@ -2041,9 +2041,9 @@ meter {
   /*
     Shadows
   */ }
-  @media only screen and (min-width: 18.75em) {
+  @media only screen and (min-width: 21.875em) {
     .panel-left {
-      width: 300px; } }
+      width: 350px; } }
   .panel-left.is-active {
     box-shadow: 3px 0 10px rgba(0, 0, 0, 0.25); }
 
