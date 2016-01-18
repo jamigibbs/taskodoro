@@ -1,6 +1,6 @@
 # Taskodoro
 
-A time management app based on the [Pomodoro Technique](https://en.wikipedia.org/wiki/Pomodoro_Technique) using AngularJS and Firebase.
+A time management and task list app based on the [Pomodoro Technique](https://en.wikipedia.org/wiki/Pomodoro_Technique) using AngularJS, Firebase, and Foundation for Apps.
 
 This app has been primarily created as an exercise and development is ongoing.
 
