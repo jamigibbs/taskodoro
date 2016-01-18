@@ -4,34 +4,34 @@ A time management and task list app based on the [Pomodoro Technique](https://en
 
 ### How it works
 
-This app will allow you to start at *25-minute work session*.
+* This app will allow you to start at **25-minute work session**.
 
-You'll only be able to start a *5-minute break* after each completed work session.
+* You'll only be able to start a **5-minute break** after each completed 25-minute work session.
 
-Once you've completed four work sessions, you'll then be given a *30-minute break* timer.
+* Once you've completed four work sessions, you'll then be given a **30-minute break** timer.
 
-The app will also allow you to keep a record of completed tasks.
+* The app will also allow you to keep a record of completed tasks.
 
-![Taskodoro](http://d.pr/i/12Bf9+)
+![Taskodoro](http://d.pr/i/OZSs+)
 
 ### Installation
 
 To use on in your local environment:
 
-Clone this repo and cd into the directory:
+1. Clone this repo and cd into the directory:
 
 `git clone git@github.com:jamigibbs/taskodoro.git`
 `cd taskodoro`
 
-The first time you run the app, you'll need to install the required packages:
+2. The first time you run the app, you'll need to install the required packages:
 
 `npm install`
 
-Thereafter, you'll simply want to start npm with:
+3. Thereafter, you'll simply want to start npm with:
 
 `npm start`
 
-You'll be able to view your app in your browser at http://localhost:8079.
+You'll be able to view your app in your browser at `http://localhost:8079`.
 
 ### Todo
 
