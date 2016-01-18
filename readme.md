@@ -2,7 +2,23 @@
 
 A time management and task list app based on the [Pomodoro Technique](https://en.wikipedia.org/wiki/Pomodoro_Technique) using AngularJS, Firebase, and Foundation for Apps.
 
-This app has been primarily created as an exercise and development is ongoing.
+### Installation
+
+To install locally, fork or clone this repo.
+
+You’ll need to have Node.js, Git and Ruby installed on your machine.
+
+Run this command to globally install Foundation, Bower, and Gulp:
+
+`npm install -g foundation-cli bower gulp`
+
+If you don't have Bundler installed, you'll want to install that as well:
+
+`gem install bundler`
+
+When you’re working on your app cd into your app name and run npm start, this will run our gulp task and set up a server for you to view your app at localhost:8080:
+
+`npm start`
 
 ## Credits
 
