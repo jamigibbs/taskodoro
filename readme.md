@@ -20,16 +20,16 @@ To use on in your local environment:
 
 1. Clone this repo and cd into the directory:
 
-`git clone git@github.com:jamigibbs/taskodoro.git`
-`cd taskodoro`
+  `git clone git@github.com:jamigibbs/taskodoro.git`
+  `cd taskodoro`
 
 2. The first time you run the app, you'll need to install the required packages:
 
-`npm install`
+  `npm install`
 
 3. Thereafter, you'll simply want to start npm with:
 
-`npm start`
+  `npm start`
 
 You'll be able to view your app in your browser at `http://localhost:8079`.
 
