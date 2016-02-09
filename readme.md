@@ -12,8 +12,6 @@ A time management and task list app based on the [Pomodoro Technique](https://en
 
 * The app will also allow you to keep a record of completed tasks.
 
-![Taskodoro](http://d.pr/i/OZSs+)
-
 ### Installation
 
 To use on in your local environment:
@@ -33,7 +31,7 @@ To use on in your local environment:
 
 You'll be able to view your app in your browser at `http://localhost:8079`.
 
-### Todo
+### Roadmap
 
 * Allow users to create and authenticate accounts using AngularFire's Authentication API
 * Deploy to Heroku or similar
